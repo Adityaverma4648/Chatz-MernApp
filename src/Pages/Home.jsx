@@ -1,41 +1,36 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import ToggleButton from 'react-bootstrap/ToggleButton';
-
 import { useState } from "react";
-
+import Login from "../Components/Login";
+import SignUp from "../Components/SignUp";
 
 const Home = () => {
-    const[checked,setChecked] =  useState(false);
-    const [radioValue,setRadioValue] = useState(1);
-   const radios = [
-    { name: 'Login',value: 1, },
-    { name: 'SignUp',value: 2,},
-  ];
-
+  const [renderFormValue, setrenderFormValue] = useState("SignUp");
+  const renderForm = (e) => {
+    setrenderFormValue(e.target.innerHTML);
+  };
   return (
     <div className="Container bg-light border-end border-1 border-secondary">
-          <Container class="bg-info d-flex justify-content-center">
-                  <ButtonGroup>
-                       {radios?.map((btn,index)=>{
-                            return <ToggleButton 
-                                key={index}
-                                type="radio"
-                                id={`radio-${index}`}
-                                name={"radio"}
-                                variant={index%2?'outline-success':'outline-danger'}
-                                value={btn.value}
-                                checked={radioValue === btn.value}
-                                onChange={(e)=>{
-                                    alert(e.target.value);
-                                }}
-                                >
-                                {btn.name}
-                            </ToggleButton>
-                       })}
-                  </ButtonGroup>
-          </Container>
+      <div class="Card bg-info d-flex flex-column justify-content-center align-items-center">
+        {/*  button container  */}
+        <div className="container-fluid d-flex py-3">
+          <button
+            class="col-sm-6 btn btn-primary"
+            onClick={(e) => renderForm(e)}
+          >
+            Login
+          </button>
+          <button
+            class="col-sm-6 btn btn-danger"
+            onClick={(e) => renderForm(e)}
+          >
+            SignUp
+          </button>
+        </div>
+        {/*  form Container    */}
+        <div className="container-fluid">
+          {renderFormValue == "SignUp" ? <SignUp /> : <Login />}
+        </div>
+      </div>
     </div>
   );
 };

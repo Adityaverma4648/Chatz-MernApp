@@ -1,25 +1,12 @@
 import React, { useState, useEffect } from "react";
-import whoosh from "../assets/whoosh.mp3";
 
 const Login = () => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, SetPassword] = useState("");
-  const [audio] = useState(new Audio(whoosh));
-  const [play, setPlay] = useState(false);
+
   const [status, setStatus] = useState(false);
   const [dataSent, setDataSent] = useState(false);
-  // const [animation, setAnimation] = useState(true);
-
-  useEffect(() => {
-    const playEffects = (e) => {
-      if (play) {
-        audio.play();
-        audio.volume = 0.2;
-      }
-    };
-    playEffects();
-  }, [play]);
 
   const onChecked = (e) => {
     var passwordInp = document.getElementById("passwordInp");
@@ -40,22 +27,16 @@ const Login = () => {
   const handlePassword = (e) => {
     SetPassword(e.target.value);
   };
-  const handleClick = (e) => {
-    setPlay(true);
-    if (play) {
-      audio.play();
-    }
-  };
+  const handleClick = () => {};
   const onSubmission = (e) => {
-    // setting data current hooks value to react-redux-arrays
-    // setStatus(true);                onDataSent = setStatus(true)
+    //  axios the data to url user model
   };
 
   return (
     <div className="Login">
-      <form id="loginForm">
+      <form>
         <center>
-          <h3 className="colorWhite">Login</h3>
+          <h3>LOGIN</h3>
         </center>
         <input
           type="text"
@@ -81,14 +62,7 @@ const Login = () => {
             onChange={handlePassword}
             required
           />
-          <label htmlFor="showPassword" className="showPassword">
-            <input
-              type="checkbox"
-              name="showPassword"
-              className="showPasswordInp"
-              onChange={onChecked}
-            />
-          </label>
+          <button className="p-2">{/* eye icon */}</button>
         </div>
         <div className="submitInpCont">
           <input
@@ -100,7 +74,6 @@ const Login = () => {
           />
         </div>
       </form>
-      <div className="textBg">LOGIN</div>
     </div>
   );
 };

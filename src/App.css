@@ -29,3 +29,8 @@
     background:linear-gradient(rgb(137, 129, 181),rgb(231, 143, 143)) ;
     overflow: hidden;
 }
+
+.Card{
+    height: 60vh;
+    width: 50vw;
+}
