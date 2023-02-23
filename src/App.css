@@ -1,0 +1,31 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+/* General Page css */
+.Container{
+    height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+/*   */
+.Sidebar {
+    z-index: 99999;
+    left: 0;
+    position: absolute;
+    width: 80px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background:linear-gradient(rgb(137, 129, 181),rgb(231, 143, 143)) ;
+    overflow: hidden;
+}
