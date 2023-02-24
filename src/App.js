@@ -8,9 +8,7 @@ import Sidebar from "./Components/Sidebar";
 
 const App = () => {
   return (
-         <BrowserRouter>
-             <Sidebar />
-       
+         <BrowserRouter>       
                  <Route path="/" component={Home} exact />
                  <Route path="/chats" component={Chat} />
 

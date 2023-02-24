@@ -34,3 +34,8 @@
     height: 60vh;
     width: 50vw;
 }
+
+.AuthformCont{
+    height: 50vh;
+    background-color: white;
+}

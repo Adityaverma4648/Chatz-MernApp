@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-
+import { FaEye } from "react-icons/fa";
 const Login = () => {
-  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, SetPassword] = useState("");
 
@@ -18,9 +17,6 @@ const Login = () => {
     }
   };
 
-  const handleUserName = (e) => {
-    setUserName(e.target.value);
-  };
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -33,48 +29,49 @@ const Login = () => {
   };
 
   return (
-    <div className="Login">
-      <form>
-        <center>
-          <h3>LOGIN</h3>
-        </center>
-        <input
-          type="text"
-          placeholder="userName"
-          className="inpElem"
-          onChange={handleUserName}
-          required
-        />
-
+    <form className="AuthformCont container d-flex flex-column justify-content-center ">
+      <div className="container-fluid h5">
+        <h5>Welcome Back</h5>
+        <small>Please login using registered</small>
+      </div>
+      <label
+        htmlFor="email"
+        className="container py-2 border border-3 border-info mb-1"
+      >
+        <span>Email :</span>
         <input
           type="email"
-          placeholder="email"
-          className="inpElem"
+          placeholder="Please enter email here"
+          className="container border-0 py-1 px-2 mb-2"
           onChange={handleEmail}
+          name="email"
           required
         />
-        <div className="passwordInpCont">
-          <input
-            type="password"
-            placeholder="password"
-            className="inpElem passwordInp"
-            id="passwordInp"
-            onChange={handlePassword}
-            required
-          />
-          <button className="p-2">{/* eye icon */}</button>
-        </div>
-        <div className="submitInpCont">
-          <input
-            type="submit"
-            className="submitInp"
-            value="Login"
-            onClick={handleClick}
-            onSubmit={onSubmission}
-          />
-        </div>
-      </form>
-    </div>
+      </label>
+      <label
+        htmlFor="password"
+        class="container py-2 border border-3 border-info mb-1"
+      >
+        <span>Password :</span>
+        <input
+          type="password"
+          placeholder="password"
+          className="container border-0 py-1 passwordInp mb-2"
+          id="passwordInp"
+          onChange={(e) => handlePassword(e)}
+          required
+        />
+      </label>
+      <div class="container">
+        <input
+          type="submit"
+          className="col-sm-4 px-2 py-1 btn btn-success"
+          value="Login"
+          onClick={handleClick}
+          onSubmit={onSubmission}
+        />
+      </div>
+    </form>
   );
 };
 
