@@ -6,7 +6,9 @@ const SignUp = () => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, SetPassword] = useState("");
-  const [status, setStatus] = useState(false);
+  const [confirmpassword, SetConfirmPassword] = useState("");
+
+  const [loading, setLoading] = useState(false);
   const [dataSent, setDataSent] = useState(false);
   // const [animation, setAnimation] = useState(true);
 
@@ -29,10 +31,13 @@ const SignUp = () => {
   const handlePassword = (e) => {
     SetPassword(e.target.value);
   };
+
+  const handleConfirmPassword = (e)=>{
+       SetConfirmPassword(e.target.value);
+  }
   const handleClick = () => {};
   const onSubmission = (e) => {
-    // setting data current hooks value to react-redux-arrays
-    // setStatus(true);                onDataSent = setStatus(true)
+      
   };
 
   return (
@@ -69,7 +74,7 @@ const SignUp = () => {
           placeholder="Confirm password"
           className="col-sm-6 py-1 passwordInp mb-2"
           id="passwordInp"
-          onChange={(e) => handlePassword(e)}
+          onChange={(e) => handleConfirmPassword(e)}
           required
         />
 
